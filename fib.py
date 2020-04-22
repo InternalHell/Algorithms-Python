@@ -15,4 +15,16 @@ def fac(n):
     for i in range(1, n+1):
         list[i] = list[i-1] * i
     return list[n]
-print('\n',fac(12))
+print('\n'+fac(12))
+
+# Функция фибоначчи методом хэширования
+list = [None] * 990
+def fib_hash(n):
+    assert n >= 0 and n <= 990
+    if list[n] is None:
+        if n <= 1:
+            list[n] = n
+        else:
+            list[n] = fib_hash(n-1) + fib_hash(n-2)
+    return list[n]
+print(fib_hash(20))
