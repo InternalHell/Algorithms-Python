@@ -1,5 +1,3 @@
-
-
 def radix_sort(list, radix=10): # radix - система счисления
     """
     :param arr: Iterable of elements to sort.

@@ -1,4 +1,4 @@
-def gis(list):
+def lis(list):
     F = [0] * (len(list) + 1)
     for i in range(1,len(list) + 1):
         m = 0
@@ -12,4 +12,4 @@ def gis(list):
 
 array = 'hhll'
 print(array)
-print(gis(array))
+print(lis(array))
