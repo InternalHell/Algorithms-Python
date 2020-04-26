@@ -4,7 +4,7 @@ class Heap:
         self.size = 0
 
     def insert(self, x):
-        self.volues.append(i)
+        self.volues.append(x)
         self.size += 1
         self.up(self.size-1)
 
@@ -24,25 +24,26 @@ class Heap:
         return tmp
 
     def down(self, i):
-        while 2*i+1 < self.size:
-            if self.volues[2*i+1] < self.volues[i]:
-                j = 2*i+1
-            if 2*i+2 < self.size and self.volues[2*i+2] < self.volues[j]:
-                j = 2*i+2
+        while i*2+1 < self.size:
+            if self.volues[i*2+1] < self.volues[i]:
+                j = i*2+1
+            if i*2+2 < self.size and self.volues[i*2+2] < self.volues[i*2+1]:
+                j = i*2+2
             if i == j:
                 break
-            self.volues[i], self.volues[j] = self.volues[j], self.volues[i]
-            j = i
-def heapfy(arr):
-    heap = Heap()
-    for i in arr:
-        heap.insert(i)
-    return heap_sort(heap)
-def heap_sort(heap):
+            self.volues[i],self.volues[j] = self.volues[j],self.volues[i]
+            i = j
+        
+def heap_sort(list):
     arr = []
+    heap = Heap()
+    for i in list:
+        heap.insert(i)
     while heap.size:
         arr.append(heap.min())
     return arr
-x = Heap()
-list = [23,17,19,12,9,18,7,10,20]
-print(heapfy(list))
+if __name__ == '__main__':
+    from random import *
+    list = [randint(1,100) for i in range(10)]
+    print('Start list:',list)
+    print(heap_sort(list))
